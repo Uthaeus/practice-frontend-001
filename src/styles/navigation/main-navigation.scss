@@ -1,21 +1,15 @@
 
 .main-navigation {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    height: 46px;
-    background-color: #1b406479;
-    padding: 0 20px;
-
-    .main-navigation__logo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 36px;
+    padding: 0 4rem;
+    border-bottom: 1px solid #ccc;
 
     .main-navigation__items {
         display: flex;
         align-items: center;
-        justify-content: flex-end;
     }
 
     .main-navigation__auth {
@@ -26,16 +20,14 @@
 
     .nav-link {
         margin: auto 20px;
-        font-size: 1.2em;
-        color: #fff;
+        font-size: 0.8em;
+        color: #121212;
         text-decoration: none;
         border-bottom: 1px solid transparent;
-        transition: color 0.3s, border-bottom 0.3s ease-in-out, transform 0.3s ease-in-out, border-bottom-color 0.3s ease-in-out;
+        transition: color 0.3s ease-in-out;
 
         &:hover {
             color: #18868c;
-            border-bottom-color: #18868c;
-            transform: scale(1.1);
         }
     }
 }

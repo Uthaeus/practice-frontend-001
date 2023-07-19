@@ -1,7 +1,9 @@
 @import '../navigation/main-navigation.scss';
 
+@import '../pages/home.scss';
+@import '../pages/userpage.scss';
+
 .root-layout {
     width: 100%;
     min-height: 100vh;
-    background-color: #82a2c2;
 }

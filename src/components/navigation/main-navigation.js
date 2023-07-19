@@ -1,6 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
-function MainNavigation() {
+function MainNavigation({user}) {
 
     function logoutHandler() {
         console.log('Logout');
@@ -8,11 +8,9 @@ function MainNavigation() {
 
     return (
         <div className="main-navigation">
-            <div className="main-navigation__logo">
-                <h1>React App</h1>
-            </div>
 
             <div className="main-navigation__items">
+                {user ? <Link to="/userpage" className="nav-link">{user.username}</Link> : <Link to="/sign-in" className="nav-link">{'Hi ('}<span className="sign-in-link">Sign in</span>{')'}</Link>}
                 <NavLink to="/" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'} exact>Home</NavLink>
                 <NavLink to="/userpage" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Userpage</NavLink>
             </div>
