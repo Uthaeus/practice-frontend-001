@@ -1,4 +1,32 @@
 
 .homepage {
     
+    .homepage-header {
+        width: 40%;
+        margin: 0 auto;
+        margin-top: 20%;
+
+        .homepage-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: black;
+            text-align: center;
+        }
+
+        .homepage-subtitle {
+            font-weight: 400;
+            color: rgb(130, 128, 128);
+            text-align: center;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+
+            .header-action {
+                font-size: 0.9em;
+                border-radius: 3px;
+            }
+        }
+    }
 }
