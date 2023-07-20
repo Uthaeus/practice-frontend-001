@@ -1,6 +1,10 @@
 import { NavLink, Link } from "react-router-dom";
+import { useContext } from "react";
 
-function MainNavigation({user}) {
+import { UserContext } from "../../store/user-context";
+
+function MainNavigation() {
+    const { user, logout } = useContext(UserContext);
 
     function logoutHandler() {
         console.log('Logout');
@@ -19,9 +23,14 @@ function MainNavigation({user}) {
             </div>
 
             <div className="main-navigation__auth">
-                <NavLink to="/sign-in" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Sign In</NavLink>
-                <NavLink to="/sign-up" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Sign Up</NavLink>
-                <p onClick={logoutHandler} className="nav-link">Logout</p>
+                {user ? (
+                    <p onClick={logoutHandler} className="nav-link">Logout</p>
+                ) : (
+                    <>
+                        <NavLink to="/sign-in" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Sign In</NavLink>
+                        <NavLink to="/sign-up" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Sign Up</NavLink>
+                    </>
+                )}
             </div>
         </div>
     );
