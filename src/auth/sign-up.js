@@ -21,7 +21,7 @@ function SignUp() {
             }
         };
 
-        fetch('http://localhost:4000/users/sign_up', {
+        fetch('http://localhost:4000/users', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(dataToSend)
@@ -42,7 +42,7 @@ function SignUp() {
     }
 
     return (
-        <div class='auth-container'>
+        <div className='auth-container'>
             <h1 className="auth-title">Sign Up</h1>
 
             <form onSubmit={handleSubmit(submitHandler)} className="auth-form">

@@ -26,7 +26,8 @@ function SignIn() {
         })
         .then(response => {
             if (response.ok) {
-                let token = response.headers.get(['Authorization'].split(' ')[1]);
+                let token = response.headers.get('Authorization').split(' ')[1];
+                localStorage.setItem('practice-token', token);
                 console.log('sign in token', token);
                 return response.json();
             } 
