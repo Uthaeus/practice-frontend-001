@@ -16,6 +16,8 @@ function HomePage() {
                     <button onClick={() => navigate('/')} className="header-action">projects</button>
                     <button onClick={() => navigate('/')} className="header-action">about</button>
                     <button onClick={() => navigate('/')} className="header-action">contact</button>
+                    <button onClick={() => navigate('/')} className="header-action">blogs</button>
+                    <button onClick={() => navigate('/')} className="header-action">portfolio</button>
                 </div>
             </div>
         </div>
