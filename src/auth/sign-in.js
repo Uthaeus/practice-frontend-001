@@ -1,11 +1,42 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { UserContext } from "../store/user-context";
 
 function SignIn() {
     const { register, handleSubmit, errors } = useForm();
+    const navigate = useNavigate();
+    const userCtx = useContext(UserContext);
 
     function submitHandler(data) {
         console.log(data);
+        let dataToSend = {
+            user: {
+                email: data.email,
+                password: data.password
+            }
+        };
+
+        fetch('http://localhost:4000/users/sign_in', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(dataToSend)
+        })
+        .then(response => {
+            if (response.ok) {
+                let token = response.headers.get(['Authorization'].split(' ')[1]);
+                console.log('sign in token', token);
+                return response.json();
+            } 
+        })
+        .then(data => {
+            console.log('sign in data', data.data);
+            userCtx.login(data.data);
+            navigate('/');
+        })
+        .catch(error => console.log('sign in error', error));
     }
 
     return (
