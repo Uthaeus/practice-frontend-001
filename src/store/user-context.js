@@ -10,9 +10,6 @@ function UserContextProvider(props) {
     const [user, setUser] = useState(null);
 
     function loginHandler(user) {
-        if (user.username === '') {
-            user.username = 'Anonymous';
-        }
         setUser(user);
     }
 

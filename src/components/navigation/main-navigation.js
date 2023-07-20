@@ -7,7 +7,20 @@ function MainNavigation() {
     const { user, logout } = useContext(UserContext);
 
     function logoutHandler() {
-        console.log('Logout');
+        fetch('http://localhost:4000/users/sign_out', {
+            method: 'DELETE',
+            headers: { 'Authorization': `Bearer ${localStorage.getItem('practice-token')}` }
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+        })
+        .then(data => {
+            localStorage.removeItem('practice-token');
+            logout();
+        })
+        .catch(error => console.log('logout error', error));
     }
 
     return (
@@ -18,7 +31,7 @@ function MainNavigation() {
             </div>
 
             <div className="main-navigation__items">
-                <NavLink to="/" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'} exact>Home</NavLink>
+                <NavLink to="/" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'} end>Home</NavLink>
                 <NavLink to="/userpage" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Userpage</NavLink>
             </div>
 

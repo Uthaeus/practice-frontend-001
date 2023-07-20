@@ -17,7 +17,7 @@ function SignUp() {
                 email: data.email,
                 password: data.password,
                 password_confirmation: data.password_confirmation,
-                username: data.username || ''
+                username: data.username || 'Anonymous'
             }
         };
 
@@ -28,8 +28,8 @@ function SignUp() {
         })
         .then(response => {
             if (response.ok) {
-                let token = response.headers.get(['Authorization'].split(' ')[1]);
-                console.log('sign up token', token);
+                let token = response.headers.get('Authorization').split(' ')[1];
+                localStorage.setItem('practice-token', token);
                 return response.json();
             } 
         })
@@ -50,6 +50,11 @@ function SignUp() {
                     <label htmlFor="email">Email</label>
                     <input type="email" className="form-control" {...register("email", { required: true })} />
                     {errors?.email && <span className="text-danger">This field is required</span>}
+                </div>
+
+                <div className="form-group mb-3">
+                    <label htmlFor="username">Username</label>
+                    <input type="text" className="form-control" {...register("username")} />
                 </div>
 
                 <div className="form-group mb-3">

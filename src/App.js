@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
 
 import { UserContext } from "./store/user-context";
 
@@ -51,8 +51,7 @@ function App() {
         } 
       })
       .then(data => {
-        console.log('me data', data.data);
-        userCtx.login(data.data);
+        userCtx.login(data);
       })
       .catch(error => console.log('me error', error));
     }
