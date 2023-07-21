@@ -28,9 +28,10 @@
     }
 
     .blog-link {
+        text-decoration: none;
         font-size: 1.3em;
         color: #fff;
-        margin-left: 20px;
+        margin-left: 40px;
         padding-bottom: 3px;
         border-bottom: 2px solid transparent;
         transition: border-bottom 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;

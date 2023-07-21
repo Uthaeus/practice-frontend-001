@@ -26,7 +26,11 @@ function BlogNavigation() {
     return (
         <div className="blog-navigation">
             <div className="blog-navigation-head">
-                <p>user here</p>
+                {user ? (
+                    <NavLink to="/userpage" className="blog-user-link">Welcome, {user.username}</NavLink>
+                 ) : (
+                    <NavLink to="/sign-in" className="blog-user-link">Welcome, Guest</NavLink>
+                 )}
             </div>
 
             <div className="blog-navigation-links">
