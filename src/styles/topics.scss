@@ -1,9 +1,9 @@
 
 .topics {
-    width: 80%;
+    width: 86%;
     margin: 3rem auto;
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 2fr 1fr;
 
     .topics-main {
         padding-bottom: 1rem;
@@ -22,7 +22,20 @@
             transition: color 0.3s ease-in-out;
 
             &:hover {
+                cursor: pointer;
                 color: #184a87;
+            }
+        }
+
+        .form-close {
+            font-size: 0.8em;
+            color: #910d0d;
+            text-decoration: underline;
+            transition: color 0.3s ease-in-out;
+
+            &:hover {
+                cursor: pointer;
+                color: red;
             }
         }
 
@@ -42,6 +55,7 @@
     border-bottom: 1px solid #e6e6e6;
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
 
     .topic-item-name {
         text-decoration: none;
@@ -57,12 +71,11 @@
 
     .topic-item-delete-btn {
         padding: 2px 5px;
-        border: 1px solid #333;
-        border-radius: 2px;
         color: #910d0d;
         transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 
         &:hover {
+            cursor: pointer;
             color: red;
             transform: scale(1.1);
         }

@@ -18,6 +18,7 @@ import NewBlog from "./components/blogs/new-blog";
 import BlogDetail from "./components/blogs/blog-detail";
 import EditBlog from "./components/blogs/edit-blog";
 import Topics from "./components/topics/topics";
+import TopicDetail from "./components/topics/topic-detail";
 
 
 const router = createBrowserRouter([
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Topics />
+      },
+      {
+        path: '/topics/:id',
+        element: <TopicDetail />
       }
     ]
   }

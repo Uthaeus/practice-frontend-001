@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 
 function TopicForm({ addTopicHandler }) {
-    const { register, handleSubmit, error } = useForm();
+    const { register, handleSubmit, error, reset } = useForm();
 
     function submitHandler(data) {
         let dataToSend = {
@@ -26,6 +26,7 @@ function TopicForm({ addTopicHandler }) {
         .then(data => {
             console.log('topic submit data', data);
             addTopicHandler(data);
+            reset();
         })
         .catch(err => console.log('topic submit error', err));
     }
@@ -38,7 +39,7 @@ function TopicForm({ addTopicHandler }) {
                 {error?.name && <p className="text-danger">Name is required.</p>}
             </div>
 
-            <button type="submit" className="topic-form-btn mb-1">Submit</button>
+            <button type="submit" className="topic-form-btn mb-3">Submit</button>
         </form>
     );
 }
