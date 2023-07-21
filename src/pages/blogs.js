@@ -1,4 +1,6 @@
 
+import BlogItem from "../components/blogs/blog-item";
+
 function Blogs() {
     return (
         <div>
