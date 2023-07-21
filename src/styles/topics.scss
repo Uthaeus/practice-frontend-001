@@ -1,0 +1,49 @@
+
+.topics {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+// topic item
+
+.topic-item {
+    width: 80%;
+    margin: 1rem 0;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e6e6e6;
+    display: flex;
+    justify-content: space-between;
+
+    .topic-item-name {
+        text-decoration: none;
+        font-size: 2em;
+        color: #333;
+        transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+        &:hover {
+            color: #184a87;
+            transform: scale(1.1);
+        }
+    }
+
+    .topic-item-delete-btn {
+        padding: 2px 5px;
+        border: 1px solid #333;
+        border-radius: 2px;
+        color: #910d0d;
+        transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+        &:hover {
+            color: red;
+            transform: scale(1.1);
+        }
+    }
+}
+
+// topic detail
+
+.topic-detail {
+    width: 80%;
+    margin: 2rem auto;
+}

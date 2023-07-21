@@ -2,7 +2,7 @@
 
 function Topics() {
     return (
-        <div>
+        <div className="topics">
             <h1>Topics</h1>
         </div>
     );
