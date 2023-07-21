@@ -1,8 +1,35 @@
 
 .topics {
-    width: 80%;
-    margin: 0 auto;
-    margin-top: 3rem;
+    width: 90%;
+    margin: 3rem auto;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+
+    .topics-main {
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #e6e6e6;
+        
+        .topics-title {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0.5rem 0;
+        }
+
+        .topic-link {
+            color: rgb(6, 105, 191);
+            text-decoration: underline;
+            transition: color 0.3s ease-in-out;
+
+            &:hover {
+                color: #184a87;
+            }
+        }
+
+        .topics-list {
+            margin: 1rem 0;
+            padding-left: 1rem;
+        }
+    }
 }
 
 // topic item
@@ -46,4 +73,28 @@
 .topic-detail {
     width: 80%;
     margin: 2rem auto;
+}
+
+// topic form 
+
+.topic-form {
+    width: 60%;
+    margin: 1rem 0;
+    border-bottom: 1px solid #e6e6e6;
+
+    .topic-form-btn {
+        font-size: 0.9em;
+        width: 40%;
+        border-radius: 3px;
+        background-color: #184a87;
+        color: #fff;
+        box-shadow: 2px 2px 3px #ccc;
+        transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+        &:hover {
+            background-color: #3b6d9a;
+            transform: scale(1.03);
+            box-shadow: 3px 3px 4px #ccc;
+        }
+    }
 }

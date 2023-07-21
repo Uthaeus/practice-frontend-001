@@ -1,9 +1,10 @@
 import { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 
 import { UserContext } from "../../store/user-context";
 import TopicItem from "./topic-item";
 import TopicForm from "./topic-form";
-import { set } from "react-hook-form";
+import BlogSidebar from "../blogs/blog-sidebar";
 
 function Topics() {
     const [topics, setTopics] = useState([]);
@@ -38,14 +39,26 @@ function Topics() {
 
     return (
         <div className="topics">
-            <h1>Topics</h1>
-            {/* move to sidebar */}
-            { user?.role === 'site_admin' && <p className="new-topic-link" onClick={() => setShowForm(!showForm)}>Create New Topic</p> }
-            <hr />
+            <div className="topics-main">
+                <h1 className="topics-title">Topics</h1>
+                
+                { user?.role === 'site_admin' && <p className="topic-link" onClick={() => setShowForm(!showForm)}>Create New Topic</p> }
 
-            <div className="topics-list">
-                { topics.map(topic => <TopicItem key={topic.id} topic={topic} deleteHandler={deleteHandler} />) }
+                { showForm && (
+                    <>
+                        <TopicForm />
+                        <p onClick={() => setShowForm(!showForm)} className="form-close">close</p>
+                    </>
+                )}
+
+                <div className="topics-list">
+                    { topics.map(topic => <TopicItem key={topic.id} topic={topic} deleteHandler={deleteHandler} />) }
+                </div>
+
+                <Link to='/blogs' className="topic-link">Back to Blogs</Link>
             </div>
+
+            <BlogSidebar />
         </div>
     );
 }
