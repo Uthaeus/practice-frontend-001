@@ -36,7 +36,6 @@ function MainNavigation() {
                 <NavLink to="/contact" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Contact</NavLink>
                 <NavLink to="/projects" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Projects</NavLink>
                 <NavLink to="/blogs" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Blogs</NavLink>
-                <NavLink to="/portfolio" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Portfolio</NavLink>
                 { user && <NavLink to="/userpage" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>User</NavLink>}
             </div>
 
