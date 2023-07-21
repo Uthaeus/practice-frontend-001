@@ -37,6 +37,10 @@ function Topics() {
             .catch(err => console.log('delete topic error', err));
     }
 
+    function addTopicHandler(topic) {
+        setTopics([...topics, topic]);
+    }
+
     return (
         <div className="topics">
             <div className="topics-main">
@@ -46,7 +50,7 @@ function Topics() {
 
                 { showForm && (
                     <>
-                        <TopicForm />
+                        <TopicForm addTopicHandler={addTopicHandler} />
                         <p onClick={() => setShowForm(!showForm)} className="form-close">close</p>
                     </>
                 )}
@@ -58,7 +62,7 @@ function Topics() {
                 <Link to='/blogs' className="topic-link">Back to Blogs</Link>
             </div>
 
-            <BlogSidebar />
+            <BlogSidebar topics={topics} />
         </div>
     );
 }

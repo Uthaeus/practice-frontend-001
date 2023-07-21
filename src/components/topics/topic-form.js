@@ -1,10 +1,33 @@
 import { useForm } from "react-hook-form";
 
-function TopicForm() {
+function TopicForm({ addTopicHandler }) {
     const { register, handleSubmit, error } = useForm();
 
     function submitHandler(data) {
-        console.log(data);
+        let dataToSend = {
+            topic: {
+                name: data.name
+            }
+        };
+
+        fetch('http://localhost:4000/topics', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('practice-token')}`
+            },
+            body: JSON.stringify(dataToSend)
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+        })
+        .then(data => {
+            console.log('topic submit data', data);
+            addTopicHandler(data);
+        })
+        .catch(err => console.log('topic submit error', err));
     }
 
     return (

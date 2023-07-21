@@ -1,12 +1,13 @@
 
 .topics {
-    width: 90%;
+    width: 80%;
     margin: 3rem auto;
     display: grid;
     grid-template-columns: 3fr 2fr;
 
     .topics-main {
-        padding-bottom: 2rem;
+        padding-bottom: 1rem;
+        margin-right: 3rem;
         border-bottom: 1px solid #e6e6e6;
         
         .topics-title {

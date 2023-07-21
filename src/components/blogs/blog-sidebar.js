@@ -1,14 +1,6 @@
-import { useState, useEffect } from "react";
 
-function BlogSidebar() {
-    const [topics, setTopics] = useState([]);
 
-    useEffect(() => {
-        fetch('http://localhost:4000/topics')
-            .then(res => res.json())
-            .then(data => setTopics(data))
-            .catch(err => console.log('topics error', err));
-    }, []);
+function BlogSidebar({ topics }) {
 
     return (
         <div className="blog-sidebar">
