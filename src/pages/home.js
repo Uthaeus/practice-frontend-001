@@ -17,11 +17,11 @@ function HomePage() {
                 </p>
 
                 <div className="header-actions">
-                    <button onClick={() => navigate('/')} className="header-action">projects</button>
-                    <button onClick={() => navigate('/')} className="header-action">about</button>
-                    <button onClick={() => navigate('/')} className="header-action">contact</button>
-                    <button onClick={() => navigate('/')} className="header-action">blogs</button>
-                    <button onClick={() => navigate('/')} className="header-action">portfolio</button>
+                    <button onClick={() => navigate('/about')} className="header-action">about</button>
+                    <button onClick={() => navigate('/contact')} className="header-action">contact</button>
+                    <button onClick={() => navigate('/projects')} className="header-action">projects</button>
+                    <button onClick={() => navigate('/blogs')} className="header-action">blogs</button>
+                    <button onClick={() => navigate('/portfolio')} className="header-action">portfolio</button>
                 </div>
             </div>
         </div>

@@ -32,7 +32,12 @@ function MainNavigation() {
 
             <div className="main-navigation__items">
                 <NavLink to="/" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'} end>Home</NavLink>
-                <NavLink to="/userpage" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Userpage</NavLink>
+                <NavLink to="/about" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>About</NavLink>
+                <NavLink to="/contact" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Contact</NavLink>
+                <NavLink to="/projects" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Projects</NavLink>
+                <NavLink to="/blogs" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Blogs</NavLink>
+                <NavLink to="/portfolio" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Portfolio</NavLink>
+                { user && <NavLink to="/userpage" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>User</NavLink>}
             </div>
 
             <div className="main-navigation__auth">

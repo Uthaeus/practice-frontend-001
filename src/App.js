@@ -8,6 +8,12 @@ import HomePage from "./pages/home";
 import Userpage from "./pages/userpage";
 import SignIn from "./auth/sign-in";
 import SignUp from "./auth/sign-up";
+import AboutPage from "./pages/about";
+import ContactPage from "./pages/contact";
+import Projects from "./pages/projects";
+import Blogs from "./pages/blogs";
+import Portfolio from "./pages/portfolio";
+
 
 const router = createBrowserRouter([
   {
@@ -29,6 +35,26 @@ const router = createBrowserRouter([
       {
         path: '/sign-up',
         element: <SignUp />
+      }, 
+      {
+        path: '/about',
+        element: <AboutPage />
+      },
+      {
+        path: '/contact',
+        element: <ContactPage />
+      },
+      {
+        path: '/projects',
+        element: <Projects />
+      },
+      {
+        path: '/blogs',
+        element: <Blogs />
+      },
+      {
+        path: '/portfolio',
+        element: <Portfolio />
       }
     ]
   }
