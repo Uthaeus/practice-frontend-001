@@ -3,6 +3,7 @@ import { useContext, useEffect } from "react";
 
 import { UserContext } from "./store/user-context";
 
+import ErrorPage from "./components/error/Error";
 import RootLayout from "./components/layouts/root-layout";
 import HomePage from "./pages/home";
 import Userpage from "./pages/userpage";
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -56,6 +58,7 @@ const router = createBrowserRouter([
   {
     path: '/blogs',
     element: <BlogLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
