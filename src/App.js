@@ -12,6 +12,10 @@ import AboutPage from "./pages/about";
 import ContactPage from "./pages/contact";
 import Projects from "./pages/projects";
 import Blogs from "./pages/blogs";
+import BlogLayout from "./components/layouts/blog-layout";
+import NewBlog from "./components/blogs/new-blog";
+import BlogDetail from "./components/blogs/blog-detail";
+import EditBlog from "./components/blogs/edit-blog";
 
 
 const router = createBrowserRouter([
@@ -47,10 +51,28 @@ const router = createBrowserRouter([
         path: '/projects',
         element: <Projects />
       },
+    ]
+  },
+  {
+    path: '/blogs',
+    element: <BlogLayout />,
+    children: [
       {
-        path: '/blogs',
+        index: true,
         element: <Blogs />
       },
+      {
+        path: '/blogs/new',
+        element: <NewBlog />
+      },
+      {
+        path: '/blogs/:id',
+        element: <BlogDetail />
+      },
+      {
+        path: '/blogs/:id/edit',
+        element: <EditBlog />
+      }
     ]
   }
 ]);
