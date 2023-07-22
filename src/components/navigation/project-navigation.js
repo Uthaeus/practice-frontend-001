@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 
 import { UserContext } from "../../store/user-context";
@@ -6,18 +6,9 @@ import { UserContext } from "../../store/user-context";
 function ProjectNavigation() {
     const { user, logout } = useContext(UserContext);
 
-    // q: can you tell me why the toggle function is not working?
-    // a: I think it's because you're using the wrong data-bs-toggle attribute value.
-    // q: can you highlight the wrong value?
-    // a: I think it's the data-bs-toggle="collapse" attribute value.
-    // q: can you tell me what the correct value is?
-    // a: I think it's the data-bs-toggle="dropdown" attribute value.
-    // q: can you tell me why the toggle function is not working?
-    // a: I think it's because you're using the wrong data-bs-toggle attribute value.
-    // q: is there another possible reason why the toggle function is not working?
-    // a: I think it's because you're using the wrong data-bs-toggle attribute value.
-    // q: what should the data-bs-toggle attribute value be?
-
+    function logoutHandler() {
+        logout();
+    }
 
     return (
         <header data-bs-theme="dark">
@@ -25,15 +16,59 @@ function ProjectNavigation() {
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-8 col-md-7 py-4">
-                            <h4>About</h4>
-                            <p className="text-body-secondary">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+                            <h4>Socials</h4>
+                            
+                            <div className="portfolio-socials-wrapper">
+                                <a className="portfolio-social-link" target="_blank" href="www.example.com"><i className="bi bi-github"></i></a>
+                                <a className="portfolio-social-link" target="_blank" href="www.example.com"><i className="bi bi-linkedin"></i></a>
+                                <a className="portfolio-social-link" target="_blank" href="www.example.com"><i className="bi bi-twitter"></i></a>
+                                <a className="portfolio-social-link" target="_blank" href="www.example.com"><i className="bi bi-instagram"></i></a>
+                                <a className="portfolio-social-link" target="_blank" href="www.example.com"><i className="bi bi-facebook"></i></a>
+                                <a className="portfolio-social-link" target="_blank" href="www.example.com"><i className="bi bi-youtube"></i></a>
+                            </div>
                         </div>
-                        <div className="col-sm-4 offset-md-1 py-4">
-                            <h4>Contact</h4>
+                        <div className="col-sm-2 offset-md-1 py-4">
+                            <h4>Explore</h4>
                             <ul className="list-unstyled">
-                                <li><a href="/" className="text-white">Follow on Twitter</a></li>
-                                <li><a href="/" className="text-white">Like on Facebook</a></li>
-                                <li><a href="/" className="text-white">Email me</a></li>
+                                <li className="portfolio-list-item">
+                                    <Link className="portfolio-link" to="/">Home</Link>
+                                </li>
+                                <li className="portfolio-list-item">
+                                    <Link className="portfolio-link" to="/about">About</Link>
+                                </li>
+                                <li className="portfolio-list-item">
+                                    <Link className="portfolio-link" to="/contact">Contact</Link>
+                                </li>
+                                <li className="portfolio-list-item">
+                                    <Link className="portfolio-link link-active" to="/projects">Projects</Link>
+                                </li>
+                                <li className="portfolio-list-item">
+                                    <Link className="portfolio-link" to="/blogs">Blogs</Link>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="col-sm-2 py-4">
+                            <h4>Account</h4>
+                            <ul className="list-unstyled">
+                                {user ? (
+                                    <>
+                                        <li className="portfolio-list-item">
+                                            <Link className="portfolio-link" to="/userpage">Userpage</Link>
+                                        </li>
+                                        <li className="portfolio-list-item">
+                                            <Link className="portfolio-link" onClick={logoutHandler}>Logout</Link>
+                                        </li>
+                                    </>
+                                ) : (
+                                    <>
+                                        <li className="portfolio-list-item">
+                                            <Link className="portfolio-link" to="/sign-in">Sign In</Link>
+                                        </li>
+                                        <li className="portfolio-list-item">
+                                            <Link className="portfolio-link" to="/sign-up">Sign Up</Link>
+                                        </li>
+                                    </>
+                                )}
                             </ul>
                         </div>
                     </div>
@@ -42,7 +77,7 @@ function ProjectNavigation() {
             <div className="navbar navbar-dark bg-dark shadow-sm">
                 <div className="container">
                     <a href={user ? '/userpage' : '/sign-in'} className="navbar-brand d-flex align-items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" className="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                        <i className="bi bi-person-circle"></i> &nbsp;
                         <strong>{user ? user.username : 'Guest'}</strong>
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
