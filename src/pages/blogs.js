@@ -28,9 +28,13 @@ function Blogs() {
         <div className="blogs">
             <div className="blogs-header">
                 <div className="blogs-header-content">
-                    <h1 className="blogs-title">Blogs</h1>
-                    { user?.role === 'site_admin' && <Link to='/blogs/new' className="blogs-header-link">Create New Blog</Link> }
-                    <Link to='/topics' className="blogs-header-link">All Topics</Link>
+                    <h1 className="blogs-title">Welcome to the Jungle</h1>
+                    { user?.role === 'site_admin' && (
+                        <>
+                            <Link to='/blogs/new' className="blogs-header-link">Create New Blog</Link>
+                            <Link to='/topics' className="blogs-header-link">All Topics</Link>
+                        </>
+                    )}
                 </div>
             </div>
 

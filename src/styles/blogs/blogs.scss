@@ -47,6 +47,7 @@
         .blogs-main {
             width: 90%;
             padding: 1rem 0;
+            padding-left: 2rem;
             border-top: 1px solid #e6e6e6;
         }
     }
@@ -58,38 +59,40 @@
     margin: 0 1rem;
 
     .blog-sidebar-title {
-        font-size: 1.6em;
+        font-size: 1.5em;
+        font-weight: 400;
         color: #333;
     }
 
     .blog-sidebar-text {
+        margin: 0 2rem 2.5rem 1rem;
         font-size: 1.2em;
         color: #ccc;
     }
 
     .blog-sidebar-topics {
         margin-left: 1rem;
+        margin-bottom: 2.5rem;
 
         .sidebar-list-item {
             list-style-type: none;
+            margin-bottom: 0.75rem;
         }
 
         .blog-sidebar-topic {
-            text-decoration: none;
-            font-size: 1.2em;
+            font-size: 1.3em;
             color: rgb(45, 106, 176);
-            margin-bottom: 0.5rem;
-            transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            transition: color 0.3s ease-in-out;
 
             &:hover {
-                color: rgb(84, 129, 164);
-                transform: scale(1.1);
+                color: rgb(74, 99, 119);
             }
         }
     }
 
     .blog-sidebar-socials {
         width: 60%;
+        margin: 0.5rem 0 0.5rem 2rem;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
 
@@ -106,5 +109,37 @@
                 transform: scale(1.1);
             }
         }
+    }
+}
+
+// Blog Item
+
+.blog-item {
+    width: 84%;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e6e6e6;
+
+    .blog-item-title {
+        font-size: 2.4em;
+        font-weight: 600;
+        text-decoration: none;
+        color: rgb(45, 106, 176);
+        border-bottom: 1px solid transparent;
+        transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+
+        &:hover {
+            color: rgb(74, 99, 119);
+            border-bottom: 1px solid rgb(74, 99, 119);
+        }
+    }
+
+    .blog-item-date {
+        font-size: 0.9em;
+        color: #ccc;
+    }
+
+    .blog-item-body {
+        margin: 0.5rem 1rem;
     }
 }

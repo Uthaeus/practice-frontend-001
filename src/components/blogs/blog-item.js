@@ -11,7 +11,7 @@ function BlogItem({ blog }) {
     return(
         <div className="blog-item">
             <Link to={`/blogs/${blog.id}`} className='blog-item-title'>{blog.title}</Link>
-            <p className="blog-item-date">Posted: {timeAgo}</p>
+            <p className="blog-item-date">Posted {timeAgo}</p>
             <p className='blog-item-body'>{truncate(blog.body)}</p>
         </div>
     );
