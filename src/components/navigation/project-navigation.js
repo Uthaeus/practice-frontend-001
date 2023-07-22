@@ -1,77 +1,56 @@
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+
+import { UserContext } from "../../store/user-context";
 
 function ProjectNavigation() {
+    const { user, logout } = useContext(UserContext);
+
+    // q: can you tell me why the toggle function is not working?
+    // a: I think it's because you're using the wrong data-bs-toggle attribute value.
+    // q: can you highlight the wrong value?
+    // a: I think it's the data-bs-toggle="collapse" attribute value.
+    // q: can you tell me what the correct value is?
+    // a: I think it's the data-bs-toggle="dropdown" attribute value.
+    // q: can you tell me why the toggle function is not working?
+    // a: I think it's because you're using the wrong data-bs-toggle attribute value.
+    // q: is there another possible reason why the toggle function is not working?
+    // a: I think it's because you're using the wrong data-bs-toggle attribute value.
+    // q: what should the data-bs-toggle attribute value be?
+
 
     return (
-        <>
-            <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-                <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-                        id="bd-theme"
-                        type="button"
-                        aria-expanded="false"
-                        data-bs-toggle="dropdown"
-                        aria-label="Toggle theme (auto)">
-                    <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
-                    <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-                    <li>
-                        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-                            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-                            Light
-                            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-                            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-                            Dark
-                            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-                        </button>
-                    </li>
-                    <li>
-                    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
-                        <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
-                        Auto
-                        <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-                    </button>
-                    </li>
-                </ul>
+        <header data-bs-theme="dark">
+            <div className="collapse text-bg-dark" id="navbarHeader">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-sm-8 col-md-7 py-4">
+                            <h4>About</h4>
+                            <p className="text-body-secondary">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+                        </div>
+                        <div className="col-sm-4 offset-md-1 py-4">
+                            <h4>Contact</h4>
+                            <ul className="list-unstyled">
+                                <li><a href="/" className="text-white">Follow on Twitter</a></li>
+                                <li><a href="/" className="text-white">Like on Facebook</a></li>
+                                <li><a href="/" className="text-white">Email me</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-        
-            <header data-bs-theme="dark">
-                <div class="collapse text-bg-dark" id="navbarHeader">
-                    <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8 col-md-7 py-4">
-                        <h4>About</h4>
-                        <p class="text-body-secondary">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-                        </div>
-                        <div class="col-sm-4 offset-md-1 py-4">
-                        <h4>Contact</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="/" class="text-white">Follow on Twitter</a></li>
-                            <li><a href="/" class="text-white">Like on Facebook</a></li>
-                            <li><a href="/" class="text-white">Email me</a></li>
-                        </ul>
-                        </div>
-                    </div>
-                    </div>
+            <div className="navbar navbar-dark bg-dark shadow-sm">
+                <div className="container">
+                    <a href={user ? '/userpage' : '/sign-in'} className="navbar-brand d-flex align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" className="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                        <strong>{user ? user.username : 'Guest'}</strong>
+                    </a>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
                 </div>
-                <div class="navbar navbar-dark bg-dark shadow-sm">
-                    <div class="container">
-                        <a href="/" class="navbar-brand d-flex align-items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                            <strong>Album</strong>
-                        </a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    </div>
-                </div>
-            </header>
-        </>
+            </div>
+        </header>
     );
 }
 
