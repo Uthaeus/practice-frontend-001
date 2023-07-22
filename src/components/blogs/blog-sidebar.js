@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 function BlogSidebar({ topics }) {
 
@@ -9,7 +9,7 @@ function BlogSidebar({ topics }) {
 
             <h3 className="blog-sidebar-title">Topics</h3>
             <div className="blog-sidebar-topics">
-                { topics.map(topic => <p key={topic.id} className="blog-sidebar-topic">{topic.name}</p>) }
+                { topics.map(topic => <Link to={`/topics/${topic.id}`} key={topic.id} className="blog-sidebar-topic">{topic.name}</Link>) }
             </div>
 
             <h3 className="blog-sidebar-title">Elsewhere</h3>

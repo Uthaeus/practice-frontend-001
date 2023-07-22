@@ -1,10 +1,12 @@
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 
 function BlogForm({ blog }) {
     const { register, handleSubmit, errors, reset } = useForm();
     const [topics, setTopics] = useState([]);
+    const [method, setMethod] = useState('POST');
+    const [url, setUrl] = useState('http://localhost:4000/blogs');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -14,6 +16,8 @@ function BlogForm({ blog }) {
                 body: blog.body,
                 topic: blog.topic_id
             });
+            setMethod('PUT');
+            setUrl(`http://localhost:4000/blogs/${blog.id}`);
         }
     }, [blog, reset]);
 
@@ -33,8 +37,8 @@ function BlogForm({ blog }) {
             }
         };
 
-        fetch('http://localhost:4000/blogs', {
-            method: 'POST',
+        fetch(url, {
+            method: method,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${localStorage.getItem('practice-token')}`
