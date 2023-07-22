@@ -8,9 +8,9 @@ function BlogSidebar({ topics }) {
             <p className="blog-sidebar-text">This is a blog about my journey to becoming a full-stack web developer.</p>
 
             <h3 className="blog-sidebar-title">Topics</h3>
-            <div className="blog-sidebar-topics">
-                { topics.map(topic => <Link to={`/topics/${topic.id}`} key={topic.id} className="blog-sidebar-topic">{topic.name}</Link>) }
-            </div>
+            <ul className="blog-sidebar-topics">
+                { topics.map(topic => <li className="sidebar-list-item"><Link to={`/topics/${topic.id}`} key={topic.id} className="blog-sidebar-topic">{topic.name}</Link></li>) }
+            </ul>
 
             <h3 className="blog-sidebar-title">Elsewhere</h3>
             <div className="blog-sidebar-socials">
