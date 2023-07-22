@@ -19,6 +19,7 @@ import BlogDetail from "./components/blogs/blog-detail";
 import EditBlog from "./components/blogs/edit-blog";
 import Topics from "./components/topics/topics";
 import TopicDetail from "./components/topics/topic-detail";
+import ProjectLayout from "./components/layouts/project-layout";
 
 
 const router = createBrowserRouter([
@@ -50,10 +51,6 @@ const router = createBrowserRouter([
       {
         path: '/contact',
         element: <ContactPage />
-      },
-      {
-        path: '/projects',
-        element: <Projects />
       },
     ]
   },
@@ -92,6 +89,17 @@ const router = createBrowserRouter([
       {
         path: '/topics/:id',
         element: <TopicDetail />
+      }
+    ]
+  },
+  {
+    path: '/projects',
+    element: <ProjectLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Projects />
       }
     ]
   }
