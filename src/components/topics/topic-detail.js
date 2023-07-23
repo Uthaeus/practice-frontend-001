@@ -1,12 +1,14 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
+import { UserContext } from "../../store/user-context";
 import BlogItem from "../blogs/blog-item";
 
 function TopicDetail() {
     const [topic, setTopic] = useState({});
     const [blogs, setBlogs] = useState([]);
+    const { user } = useContext(UserContext);
     const { id } = useParams();
 
     useEffect(() => {
@@ -29,7 +31,7 @@ function TopicDetail() {
                 { blogs.map(blog => <BlogItem key={blog.id} blog={blog} />)}
             </div>
 
-            { <Link to="/topics">Back to Topics</Link> } <Link to="/blogs">Back to Blogs</Link>
+            {user && <Link to="/topics">Back to Topics</Link> } <Link to="/blogs">Back to Blogs</Link>
         </div>
     );
 }

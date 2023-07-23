@@ -7,7 +7,19 @@ function ProjectNavigation() {
     const { user, logout } = useContext(UserContext);
 
     function logoutHandler() {
-        logout();
+        fetch('http://localhost:4000/users/sign_out', {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('practice-token')}`
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                localStorage.removeItem('practice-token');
+                logout();
+            }
+        })
+        .catch(error => console.log('logout error', error));
     }
 
     return (
@@ -76,10 +88,10 @@ function ProjectNavigation() {
             </div>
             <div className="navbar navbar-dark bg-dark shadow-sm">
                 <div className="container">
-                    <a href={user ? '/userpage' : '/sign-in'} className="navbar-brand d-flex align-items-center">
-                        <i className="bi bi-person-circle"></i> &nbsp;
-                        <strong>{user ? user.username : 'Guest'}</strong>
-                    </a>
+                    <Link to={user ? '/userpage' : '/sign-in'} className="navbar-brand d-flex align-items-center">
+                        <i className="bi bi-person-circle"></i>
+                        <strong className="portfolio-nav-user-link">{user ? user.username : 'Guest'}</strong>
+                    </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>

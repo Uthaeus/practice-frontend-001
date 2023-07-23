@@ -6,12 +6,12 @@
     .portfolio-social-link {
         text-decoration: none;
         font-size: 1.9em;
-        color: rgb(114, 3, 3);
+        color: #ccc;
         margin: 0 0.5em;
         transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 
         &:hover {
-            color: #fff;
+            color: rgb(114, 3, 3);
             transform: scale(1.2);
         }
     }
@@ -36,4 +36,16 @@
 .link-active {
     border-bottom: 1px solid #c1f3b5;
     color: #c1f3b5;
+}
+
+.portfolio-nav-user-link {
+    margin-left: 1.1rem;
+    color: ivory;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+    &:hover {
+        color: #ccc;
+        transform: scale(1.04);
+    }
 }
